@@ -5,8 +5,10 @@ class Show {
       { img: "img/2.jpg" },
       { img: "img/3.jpg" },
     ];
+    this.activeSlide = 0;
     this.wrapper = document.querySelector(".wrapper");
     this.slide = document.querySelector(".slide");
+    this.sliderImg = document.querySelector(".sliderImg");
     this.left = document.querySelector(".slide__left");
     this.right = document.querySelector(".slide__right");
     this.exit = document.querySelector(".slide__exit");
@@ -15,18 +17,23 @@ class Show {
       .addEventListener("click", this.slideShow.bind(this));
   }
   slideShow() {
-    console.log("OK");
-    this.wrapper.style.opacity = 0.4;
+    this.wrapper.style.filter = "blur(8px)";
     this.slide.style.display = "block";
-    this.exit.addEventListener("click", this.exitShow);
     this.right.addEventListener("click", this.rightShow);
     this.left.addEventListener("click", this.leftShow);
+    this.exit.addEventListener("click", this.exitShow);
   }
+  rightShow = () => {
+    this.activeSlide++;
+    this.sliderImg.src = this.imgs[this.activeSlide].img;
+  };
+  leftShow = () => {
+    this.activeSlide--;
+    this.sliderImg.src = this.imgs[this.activeSlide].img;
+  };
   exitShow = () => {
     this.slide.style.display = "none";
-    this.wrapper.style.opacity = 1;
+    this.wrapper.style.filter = "none";
   };
-  rightShow = () => {};
-  leftShow = () => {};
 }
 const show = new Show();

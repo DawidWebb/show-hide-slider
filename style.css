@@ -11,19 +11,22 @@
   transform: translate(-50%, -50%);
   width: 60vw;
   height: 80vh;
-  background-image: url(/img/1.jpg);
-  background-size: cover;
   border: 1px solid black;
   z-index: 2;
   display: none;
 }
+.sliderImg {
+  width: 100%;
+  height: 100%;
+}
 .slide__exit,
-.slide__right,
-.slide__left {
+.slide__right {
   position: absolute;
   top: 20px;
   right: 20px;
   font-size: 40px;
+  background-color: white;
+  border-radius: 50%;
   color: black;
   z-index: 2;
 }
@@ -31,8 +34,14 @@
   top: 50%;
 }
 .slide__left {
+  position: absolute;
   top: 50%;
   left: 20px;
+  font-size: 40px;
+  background-color: white;
+  border-radius: 50%;
+  color: black;
+  z-index: 2;
 }
 
 .wrapper {
